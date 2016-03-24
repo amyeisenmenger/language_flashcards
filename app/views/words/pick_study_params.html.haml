@@ -1,0 +1,15 @@
+= form_tag '/words' do
+  = label_tag(:language, 'Language:')
+  %br
+  = radio_button_tag(:language, "Dutch")
+  = label_tag(:language_dutch, 'Dutch')
+  = radio_button_tag(:language, "English")
+  = label_tag(:language_english, 'English')
+  %br
+  = label_tag(:category, 'Categories:')
+  - if @categories.any?
+    - @categories.each do |category|
+      = check_box_tag category.name, category.id
+      = label_tag category.name
+  %br
+  = submit_tag("Study!")

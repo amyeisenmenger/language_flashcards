@@ -1,0 +1,11 @@
+%h2 All Words
+%ul
+  - @words.each do |word|
+    %li 
+      = link_to "#{word.english} / #{word.dutch}"
+      = link_to 'Edit', edit_word_path(word)
+      = link_to 'Delete', word_path(word), method: :delete
+
+= link_to 'New Word', new_word_path
+= link_to 'Study', pick_study_params_path, action: :pick_study_params
+= link_to 'Profile', edit_user_registration_path
